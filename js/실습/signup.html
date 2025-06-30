@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+
+<body>
+    <input type="email" id="useremail">
+    <input type=" text" id="username">
+    <input type="password" id="password">
+    <button id="signupBtn">회원가입</button>
+
+    <script>
+        // input 태그에 입력한 내용을 가져와서
+        // 만약에 이메일, 이름, 비밀번호가 없으면
+        //      alert로 경고 메시지 보여주기
+        // 그렇지 않으면
+        //      만약에 비밀번호가 8자리 미만이면
+        //          alert로 경고 메시지 보여주기
+        //      그렇지 않으면
+        //          3개 다 console로 출력하기
+
+        let email = document.getElementById("useremail");
+        let name = document.getElementById("username");
+        let pw = document.getElementById("password");
+        let signupBtn = document.getElementById("signupBtn");
+
+        const signup = () => {
+            if (email.value == "" || name.value == "" || pw.value == "") {
+                alert("빈칸이 있습니다. 입력하세요.");
+            } else {
+                if (pw.value.length < 8) {
+                    alert("비밀번호가 짧습니다.");
+                } else {
+                    console.log("email = " + email.value + ", name = " + name.value + ", pw = " + pw.value);
+                }
+            }
+        };
+        signupBtn.addEventListener("click", signup);
+
+        /*
+        signupBtn.addEventListener("click", () => {
+            if (email.value == "" || name.value == "" || pw.value == "") {
+                alert("빈칸이 있습니다. 입력하세요.");
+            } else {
+                if (pw.value.length < 8) {
+                    alert("비밀번호가 짧습니다.");
+                } else {
+                    console.log("email = " + email.value + ", name = " + name.value + ", pw = " + pw.value);
+                }
+            }
+        });
+*/
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://192.0.0.100:10000/index.html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29cm</title>
+  <link rel="stylesheet" href="./29cm_files/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      outline: none;
+    }
+
+    ol,
+    ul,
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .header {
+      padding: 50px 50px 20px 50px;
+    }
+
+    .logo {
+      display: inline-block;
+    }
+
+    .header-user-nav {
+      float: right;
+    }
+
+    .header-user-nav-item {
+      display: inline-block;
+      margin: 0 auto;
+      font-size: 12px;
+      color: #5d5d5d;
+    }
+
+    .header-user-nav-item-link {
+      color: black;
+      margin-left: 15px;
+    }
+
+    .header-nav {
+      padding-top: 38px;
+    }
+
+    .header-nav-item {
+      display: inline-block;
+      margin: 0 20px 0 0;
+      font-size: 20px;
+    }
+
+    .header-nav-item-link {
+      color: black;
+      font-size: 40px;
+      font-weight: 1000;
+    }
+
+    .header-nav-item-link:hover {
+      border-bottom: 4px solid;
+    }
+
+    .search-icon {
+      position: relative;
+      float: right;
+      top: 10px;
+      font-size: 40px;
+    }
+
+    .nav {
+      margin: 12px 0 0;
+      display: flex;
+    }
+
+    .nav-item {
+      display: flex;
+      padding-right: 20px;
+    }
+
+    .nav-item-link {
+      color: black;
+      padding: 6px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .nav-item-link:hover {
+      border-bottom: 4px solid;
+    }
+
+    .nav-item-best-dropdown {
+      display: none;
+    }
+
+    .nav-item-best:hover>.nav-item-best-dropdown {
+      position: absolute;
+      width: 100%;
+      height: 368px;
+      padding: 17px 50px;
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      background-color: white;
+      top: 214px;
+      left: 0px;
+      display: block;
+    }
+
+    .nav-item-women-dropdown {
+      display: none;
+    }
+
+    .nav-item-women:hover>.nav-item-women-dropdown {
+      position: absolute;
+      width: 100%;
+      height: 368px;
+      padding: 17px 50px;
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      background-color: white;
+      top: 214px;
+      left: 0px;
+      display: block;
+    }
+
+    .nav-item-men-dropdown {
+      display: none;
+    }
+
+    .nav-item-men:hover>.nav-item-men-dropdown {
+      position: absolute;
+      width: 100%;
+      height: 368px;
+      padding: 17px 50px;
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      background-color: white;
+      top: 214px;
+      left: 0px;
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: flex;
+    }
+
+    .dropdown-menu-header {
+      width: 176px;
+    }
+
+    .dropdown-menu-header-link {
+      position: relative;
+      display: inline-block;
+      padding: 6px 0px 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgb(0, 0, 0);
+      border: 0px;
+    }
+
+    .dropdown-menu-list {
+      display: flex;
+      flex-flow: column wrap;
+      height: 210px;
+    }
+
+    .dropdown-menu-list-item {
+      width: 176px;
+      height: 30px;
+    }
+
+    .dropdown-menu-list-item-link:hover {
+      font-weight: 600;
+    }
+
+    .footer {
+      padding: 0px 50px;
+    }
+
+    .footer-top {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-top-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .customer-service-btns {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .customer-service-btn {
+      position: relative;
+      box-sizing: border-box;
+      width: 94px;
+      padding-left: 14px;
+      font-size: 15px;
+      line-height: 30px;
+      color: white;
+      background: black;
+      border-radius: 2px;
+    }
+
+    .customer-service-btn:nth-child(2) {
+      margin-left: 4px;
+    }
+
+    .footer-top-right {
+      position: absolute;
+      display: flex;
+      right: 0;
+      bottom: 0;
+      height: 30px;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      line-height: 30px;
+      text-align: center;
+      vertical-align: bottom;
+      width: 30px;
+      height: 30px;
+      font-size: 15px;
+      margin-left: 6px;
+      background-color: black;
+      border-radius: 100%;
+    }
+
+    .footer-icon>a {
+      color: white;
+    }
+
+    .footer-middle {
+      border-top: 1px solid lightgrey;
+      margin-top: 17px;
+      padding-top: 9px;
+      padding-bottom: 6px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-middle-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-middle-right {
+      position: absolute;
+      display: flex;
+      right: 0;
+      height: 30px;
+    }
+
+    .footer-middle-right-list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .footer-middle-right-list-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-middle-right-list-item-title {
+      padding-right: 103px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid lightgrey;
+      margin-top: 30px;
+      padding-top: 9px;
+      padding-bottom: 6px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-bottom-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-bottom-right {
+      position: absolute;
+      display: flex;
+      right: 0;
+      height: 30px;
+    }
+
+    .inicis {
+      position: relative;
+      display: flex;
+      top: 50px;
+      right: 50px;
+    }
+
+    .inicis-logo {
+      overflow: hidden;
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      line-height: 100em;
+      vertical-align: top;
+      background: url("https://img.29cm.co.kr/next29cm/sp_pc_footer.jpg");
+      background-position: 0 -27px;
+      background-size: 162px 69px;
+      padding-right: 8px;
+    }
+
+    .bottom-info {
+      padding-top: 10px;
+      font-size: 13px;
+      line-height: 30px;
+    }
+
+    .main-contents {
+      display: flex;
+      min-width: 900px;
+      padding: 40px 50px 90px;
+    }
+
+    .aside {
+      width: 200px;
+      padding-right: 80px;
+    }
+
+    .aside-title {
+      width: 200px;
+      padding-bottom: 12px;
+      border-bottom: 4px solid #000000;
+      font-size: 23px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .aside-link {
+      display: block;
+      width: 100%;
+      line-height: 2.13;
+      font-size: 16px;
+      color: rgb(93, 93, 93);
+      text-align: left;
+      outline: none;
+      font-weight: 200;
+    }
+
+    .aside-link.selected {
+      color: rgb(0, 0, 0);
+      font-weight: 700;
+    }
+
+    .main {
+      flex: 1;
+    }
+
+    .main-header {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 41px;
+      margin-bottom: 36px;
+    }
+
+    .main-category {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      border: 1px solid rgb(212, 212, 212);
+      background-color: rgb(255, 255, 255);
+    }
+
+    .main-category-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .main-category-item {
+      min-height: 20px;
+      line-height: 20px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      position: relative;
+      overflow: visible;
+      height: 46px;
+    }
+
+    .main-category-item-input {
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      z-index: -10;
+      width: 13px;
+      height: 13px;
+      background: transparent;
+    }
+
+    .main-category-item-label {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      line-height: 20px;
+      cursor: pointer;
+      padding-left: 0px;
+      margin: 0px 24px;
+      color: rgb(0, 0, 0);
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 36px;
+      counter-reset: list-number;
+      grid-gap: 40px 20px;
+      min-height: 800px;
+    }
+
+    .product-list-item {
+      position: relative;
+      grid-column: auto / span 3;
+    }
+
+    .product-list-item::before {
+      counter-increment: list-number 1;
+      content: counter(list-number);
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 46px;
+      height: 46px;
+      background-color: rgb(0, 0, 0);
+      z-index: 1;
+      pointer-events: none;
+      color: white;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 46px;
+    }
+
+    .product-list-item:nth-of-type(-n + 3) {
+      position: relative;
+      grid-column: auto / span 4;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgb(228, 228, 228);
+    }
+
+    .product-list-item:nth-of-type(-n + 3)::before {
+      width: 62px;
+      height: 62px;
+      font-size: 28px;
+      letter-spacing: 2px;
+      line-height: 62px;
+    }
+
+    .product-list-item-wrapper {
+      font-size: 12px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .product-image-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding-top: 100%;
+      background-color: rgb(244, 244, 244);
+    }
+
+    .product-image-wrapper>img {
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .product-info-wrapper {
+      padding: 16px 0px 0px;
+    }
+
+    .product-info-link {
+      color: rgb(0, 0, 0);
+      line-height: 1.4;
+      display: block;
+      overflow: hidden;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-weight: 300;
+      font-size: inherit;
+      white-space: normal;
+      display: -webkit-box;
+      max-height: calc(4.2em);
+      overflow-wrap: break-word;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-sale-price-wrapper {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .product-sale-price {
+      line-height: 1;
+      font-size: 11px;
+      color: rgb(196, 196, 196);
+      font-weight: normal;
+      text-decoration: line-through;
+    }
+
+    .product-price-wrapper {
+      margin-top: 4px;
+    }
+
+    .product-sale {
+      color: rgb(255, 72, 0);
+      margin-right: 5px;
+    }
+
+    .product-price {
+      font-weight: inherit;
+      color: rgb(0, 0, 0);
+    }
+
+    .product-card {
+      margin-top: 6px;
+      display: flex;
+    }
+
+    .product-card-item {
+      padding: 0px 6px;
+      border-radius: 1px;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 18px;
+      background-color: rgb(244, 244, 244);
+      color: rgb(29, 29, 29);
+    }
+
+    .product-bottom-wrapper {
+      color: rgb(93, 93, 93);
+      font-size: 11px;
+      margin-top: 16px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .product-like {
+      font-size: inherit;
+      color: inherit;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      width: 58px;
+      line-height: 1;
+    }
+
+    .product-review {
+      color: inherit;
+      margin-left: 5px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="header">
+    <div class="header-top">
+      <h3 class="logo">29CM</h3>
+      <ul class="header-user-nav">
+        <li class="header-user-nav-item">
+          <a href="http://192.0.0.100:10000/index.html#" class="header-user-nav-item-link">
+            <i class="fa-solid fa-user"></i>
+            MY PAGE
+          </a>
+        </li>
+        <li class="header-user-nav-item">
+          <a href="http://192.0.0.100:10000/index.html#" class="header-user-nav-item-link">
+            <i class="fa-solid fa-heart"></i>
+            MY LIKE
+          </a>
+        </li>
+        <li class="header-user-nav-item">
+          <a href="http://192.0.0.100:10000/index.html#" class="header-user-nav-item-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            SHOPPING BAG
+          </a>
+        </li>
+        <li class="header-user-nav-item">
+          <a href="http://192.0.0.100:10000/login.html" class="header-user-nav-item-link">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            LOGIN
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="header-nav">
+      <li class="header-nav-item">
+        <a class="header-nav-item-link" href="http://192.0.0.100:10000/index.html#">Special-Order</a>
+      </li>
+      <li class="header-nav-item">
+        <a class="header-nav-item-link" href="http://192.0.0.100:10000/index.html#">Showcase</a>
+      </li>
+      <li class="header-nav-item">
+        <a class="header-nav-item-link" href="http://192.0.0.100:10000/index.html#">PT</a>
+      </li>
+      <li class="header-nav-item">
+        <a class="header-nav-item-link" href="http://192.0.0.100:10000/index.html#">Welove</a>
+      </li>
+      <i class="search-icon fa-solid fa-magnifying-glass"></i>
+    </ul>
+    <ul class="nav">
+      <li class="nav-item nav-item-best">
+        <a class="nav-item-link" href="http://192.0.0.100:10000/index.html"> BEST </a>
+      </li>
+      <li class="nav-item nav-item-women">
+        <a class="nav-item-link" href="http://192.0.0.100:10000/index.html#"> WOMEN </a>
+        <div class="nav-item-women-dropdown">
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>의류</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">상의</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">바지</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">원피스</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>가방</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">숄더백</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">토트백</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">크로스백</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>신발</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">플랫,로퍼</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">부츠</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>악세사리</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">주얼리</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">모자</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item nav-item-men">
+        <a class="nav-item-link" href="http://192.0.0.100:10000/index.html#"> MEN </a>
+        <div class="nav-item-men-dropdown">
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>의류</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">아우터</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">상의</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>가방</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">크로스백</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">백팩</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>신발</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">스니커즈</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">로퍼</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-menu-header">
+              <a class="dropdown-menu-header-link" href="http://192.0.0.100:10000/index.html#">
+                <span>악세사리</span><i class="fa-solid fa-chevron-right"></i>
+              </a>
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">ALL</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">NEW</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">EXCLUSIVE</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">지갑, 카드케이스</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">해외브랜드</a>
+                </li>
+                <li class="dropdown-menu-list-item">
+                  <a class="dropdown-menu-list-item-link" href="http://192.0.0.100:10000/index.html#">모자</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="main-contents">
+    <div class="aside">
+      <div>
+        <h2 class="aside-title">BEST</h2>
+        <ul>
+          <li>
+            <a class="aside-link selected" href="http://192.0.0.100:10000/index.html#"> 여성의류 </a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">여성가방</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">여성신발</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">여성액세서리</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">남성의류</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">남성가방</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">남성신발</a>
+          </li>
+          <li>
+            <a class="aside-link" href="http://192.0.0.100:10000/index.html#">남성액세서리</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <h2 class="main-header">여성의류</h2>
+      <div class="main-category">
+        <ul class="main-category-list">
+          <span class="main-category-item"><label class="main-category-item-label" for="categoryMediumList"
+              title="categoryMediumList">전체</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268103100"
+              title="categoryMediumList">상의</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268102100"
+              title="categoryMediumList">아우터</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268105100"
+              title="categoryMediumList">니트웨어</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268106100"
+              title="categoryMediumList">바지</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268104100"
+              title="categoryMediumList">원피스</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268107100"
+              title="categoryMediumList">스커트</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268108100"
+              title="categoryMediumList">액티브웨어</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268110100"
+              title="categoryMediumList">홈웨어</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268117100"
+              title="categoryMediumList">셋업</label></span><span class="main-category-item"><label
+              class="main-category-item-label" for="categoryMediumList268109100"
+              title="categoryMediumList">이너웨어</label></span>
+        </ul>
+      </div>
+
+
+      <ul class="product-list">
+        <li class="product-list-item">
+          <div class="product-list-item-wrapper">
+            <a href="http://192.0.0.100:10000/detail.html">
+              <div class="product-image-wrapper">
+                <img src="./29cm_files/11ee62764f2aec1da5b337e05227e995.jpg"
+                  alt="[유리하다PICK] GRACIELA premium wool handmade coat_charcoal">
+              </div>
+            </a>
+            <div class="product-info-wrapper">
+              <a href="http://192.0.0.100:10000/detail.html" class="product-info-link">르니나</a><a
+                href="http://192.0.0.100:10000/detail.html">
+                <div>
+                  <h5 class="product-name">
+                    [유리하다PICK] GRACIELA premium wool handmade
+                    coat_charcoal
+                  </h5>
+                  <div class="product-sale-price-wrapper">
+                    <strong class="product-sale-price">468,000</strong>
+                    <div class="product-price-wrapper">
+                      <span class="product-sale">24%</span><strong class="product-price">355,680</strong>
+                    </div>
+                  </div>
+                  <ul class="product-card">
+                    <li color="#1d1d1d" class="product-card-item">쿠폰</li>
+                  </ul>
+                </div>
+              </a>
+              <div class="product-bottom-wrapper">
+                <button class="product-like">
+                  <i class="fa-regular fa-heart"></i> 2,463
+                </button>
+                <a href="https://product.29cm.co.kr/catalog/2270129#review" class="product-review">
+                  <span class="review">
+                    <i class="fa-regular fa-comment"></i>48
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-top">
+      <div class="footer-top-left">
+        <div>
+          고객 센터 1644-0560운영시간 : 평일 10:00 ~ 17:00 (점심시간 12:30 ~
+          13:30 제외 / 주말 및 공휴일 제외)
+        </div>
+        <div class="customer-service-btns">
+          <a class="customer-service-btn" href="http://192.0.0.100:10000/index.html#">
+            FAQ
+            <i class="fa-solid fa-chevron-right"></i></a>
+          <a class="customer-service-btn" href="http://192.0.0.100:10000/index.html#">1:1 문의 <i
+              class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+      <div class="footer-top-right">
+        <div class="footer-icon">
+          <a href="http://192.0.0.100:10000/index.html#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+        <div class="footer-icon">
+          <a href="http://192.0.0.100:10000/index.html#">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+        <div class="footer-icon">
+          <a href="http://192.0.0.100:10000/index.html#">
+            <i class="fa-brands fa-apple"></i>
+          </a>
+        </div>
+        <div class="footer-icon">
+          <a href="http://192.0.0.100:10000/index.html#">
+            <i class="fa-brands fa-google-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-middle">
+      <div class="footer-middle-left">
+        <h2 class="css-7wha64 e1k5vzjb1">NOTICE</h2>
+        <ul>
+          <li class="css-1jn05mz e1k5vzjb2">
+            <a class="css-1w8ypd0 e1k5vzjb3" href="http://192.0.0.100:10000/index.html#">[공지] 29CM 개인정보 처리방침 개정 사전 안내
+              (시행일 : 2024년
+              1월 24일)</a>
+          </li>
+          <li class="css-8b30vy e1k5vzjb2">
+            <a class="css-1w8ypd0 e1k5vzjb3" href="http://192.0.0.100:10000/index.html#">[공지] 29CM 개인정보 처리방침 개정 사전
+              안내</a>
+          </li>
+          <li class="css-8b30vy e1k5vzjb2">
+            <a class="css-1w8ypd0 e1k5vzjb3" href="http://192.0.0.100:10000/index.html#">[공지] 현대카드 청구할인 혜택 제외 카드 안내</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-middle-right">
+        <ul class="footer-middle-right-list">
+          <li class="footer-middle-right-list-item">
+            <h2 class="footer-middle-right-list-item-title">ABOUT US</h2>
+            <a href="http://192.0.0.100:10000/index.html#">29CM 소개</a>
+            <a href="http://192.0.0.100:10000/index.html#">인재채용</a>
+            <a href="http://192.0.0.100:10000/index.html#">상시 할인 혜택</a>
+          </li>
+
+          <li class="footer-middle-right-list-item">
+            <h2 class="footer-middle-right-list-item-title">MY ORDER</h2>
+            <a href="http://192.0.0.100:10000/index.html#">주문배송</a>
+            <a href="http://192.0.0.100:10000/index.html#">취소/교환/반품 내역</a>
+            <a href="http://192.0.0.100:10000/index.html#">상품리뷰 내역</a>
+            <a href="http://192.0.0.100:10000/index.html#">증빙서류발급</a>
+          </li>
+
+          <li class="footer-middle-right-list-item">
+            <h2 class="footer-middle-right-list-item-title">MY ACCOUNT</h2>
+            <a href="http://192.0.0.100:10000/index.html#">회원 정보 수정</a>
+            <a href="http://192.0.0.100:10000/index.html#">회원 등급</a>
+            <a href="http://192.0.0.100:10000/index.html#">마일리지 현황</a>
+            <a href="http://192.0.0.100:10000/index.html#">쿠폰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <div>
+          <a href="http://192.0.0.100:10000/index.html#">
+            <strong>개인정보처리방침</strong>
+          </a>
+          <a href="http://192.0.0.100:10000/index.html#"> 이용약관 </a>
+        </div>
+
+        <div class="bottom-info">
+          상호명(주)무신사사업장소재지서울특별시 성동구 아차산로 13길 11, 1층
+          (성수동2가, 무신사캠퍼스
+          엔1)팩스070-8622-7737사업자등록번호211-88-79575 <br>
+          통신판매업신고2022-서울성동-01952<br>
+          전화번호1644-0560이메일customer@29cm.co.kr대표이사한문일개인정보
+          보호책임자이인섭호스팅서비스(주)무신사<br>
+          일부 상품의 경우 29CM는 통신판매의 당사자가 아닌 통신판매중개자로서
+          상품, 상품정보, 거래에 대한 책임이 제한될 수 있으므로, 각 상품
+          페이지에서 구체적인 내용을 확인하시기 바랍니다.
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <div class="inicis">
+          <a class="inicis-logo" href="http://192.0.0.100:10000/index.html#">
+            <span class="css-y9tiu2 e1bq4unz3">
+              이니시스 결제시스템 유효성 확인
+            </span>
+          </a>
+          <span class="css-1k3wlg9 e1bq4unz2">
+            KG 에스크로<br>
+            가입 사실 확인
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let ulTag = document.getElementsByClassName("product-list")[0];
+
+    for (let i = 0; i < 5; i++) {
+      let liTag = document.createElement("li");
+      liTag.className = "product-list-item";
+      liTag.innerHTML = `
+              <div class="product-list-item-wrapper">
+            <a href="http://192.0.0.100:10000/detail.html">
+              <div class="product-image-wrapper">
+                <img src="./29cm_files/11ee62764f2aec1da5b337e05227e995.jpg"
+                  alt="[유리하다PICK] GRACIELA premium wool handmade coat_charcoal">
+              </div>
+            </a>
+            <div class="product-info-wrapper">
+              <a href="http://192.0.0.100:10000/detail.html" class="product-info-link">르니나</a><a
+                href="http://192.0.0.100:10000/detail.html">
+                <div>
+                  <h5 class="product-name">
+                    [유리하다PICK] GRACIELA premium wool handmade
+                    coat_charcoal
+                  </h5>
+                  <div class="product-sale-price-wrapper">
+                    <strong class="product-sale-price">468,000</strong>
+                    <div class="product-price-wrapper">
+                      <span class="product-sale">24%</span><strong class="product-price">355,680</strong>
+                    </div>
+                  </div>
+                  <ul class="product-card">
+                    <li color="#1d1d1d" class="product-card-item">쿠폰</li>
+                  </ul>
+                </div>
+              </a>
+              <div class="product-bottom-wrapper">
+                <button class="product-like">
+                  <i class="fa-regular fa-heart"></i> 2,463
+                </button>
+                <a href="https://product.29cm.co.kr/catalog/2270129#review" class="product-review">
+                  <span class="review">
+                    <i class="fa-regular fa-comment"></i>48
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+    `;
+      ulTag.appendChild(liTag);
+    }
+
+  </script>
+</body>
+
+</html>

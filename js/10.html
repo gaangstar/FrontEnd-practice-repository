@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interceptor</title>
+</head>
+
+<body>
+    <button id="btn">백엔드 호출(axios, async + await)</button>
+    <p id="text"></p>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script type="module" src="./javascript/main.js"></script> -->
+    <script type="module">
+        // import { getAxios } from '../javascript/api.js';
+        // let btn = document.getElementById("btn");
+        // btn.addEventListener("click", () => {
+        //     getAxios();
+        // });
+
+        import { signup, inventory_modify_date } from '../javascript/api.js';
+        let btn = document.getElementById("btn");
+        let response;
+
+        btn.addEventListener("click", () => {
+            //            signup();
+            inventory_modify_date();
+            // response = inventory_modify_date(); //response.data
+            // console.log("response data = " + response.data);
+            // for (let i = 0; i < response.length; i++) {
+            //     // console.log("response.data[i].data.inventory.id = " + response.data[i].data.inventory.id);
+
+            //     let divTag = document.createElement("div");
+            //     divTag.textContent = response.data[i].data.inventory.id;
+
+            //     let p = document.getElementById("text");
+            //     p.appendChild(divTag);
+        });
+    </script>
+</body>
+
+</html>

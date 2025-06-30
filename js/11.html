@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>저장소</title>
+</head>
+
+<body>
+    &lt;
+
+    <script>
+        // 쿠키 : 일시적으로 필요한 작은 데이터를 저장할 때 사용
+        //        프론트만으로도 가능(보안이 약함), 백엔드 서버와 같이 사용(보안이 강함)
+        //        만료시간이 설정되어 있으면 웹 브라우저를 꺼도 유지
+        //        만료시간이 설정되어 않으면 웹 브라우저를 껐을 때 해당 쿠키 삭제
+        const setCookie = (name, value, exp) => {
+            let date = new Date();
+            date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+            document.cookie =
+                name + "=" + value + ";expires=" + date.toUTCString() + ";path=/;Secure=true;";
+        }
+
+        setCookie('test01', 'data01', 7);
+
+
+        const setCookie2 = (name, value) => {
+            var date = new Date();
+
+            document.cookie =
+                name + "=" + value + ";path=/";
+        }
+        setCookie2('test02', 'data02');
+
+        function getCookie(name) {
+            var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+            return value ? value[2] : null;
+        }
+
+        let test01 = getCookie("test01");
+        console.log(test01);
+
+        // 로컬 스토리지 : 지속적으로 필요한 데이터를 저장할 때 사용
+        //              백엔드 서버와 상관 X, 브라우저 껐다 켜도 유지
+        window.localStorage.test02 = 'data02';
+        window.localStorage.setItem("test03", "data03");
+
+        console.log(window.localStorage.test02);
+        console.log(window.localStorage.getItem("test03"))
+
+        // 세션 스토리지 : 일시적으로 필요한 큰 데이터를 저장할 때 사용
+        //              백엔드 서버와 상관 X, 브라우저 껐다 키면 초기화
+        window.sessionStorage.test04 = "data04";
+        window.sessionStorage.setItem("test05", "data05");
+
+        console.log(window.sessionStorage.test04);
+        console.log(window.sessionStorage.getItem("test05"))
+
+
+    </script>
+</body>
+
+</html>

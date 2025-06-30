@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 기능</title>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <!-- Create the editor container -->
+    <div id="editor">
+        <p>Hello World!</p>
+        <p>Some initial <strong>bold</strong> text</p>
+        <p><br /></p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const toolbarOptions = [
+            ['image']
+        ];
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: toolbarOptions
+            }
+        });
+
+
+        const showImageUI = () => {
+            console.log("이미지 업로드 함");
+
+            //이미지 선택 창이 뜨도록
+            //<input type="file" accept="image/*">
+            const input = document.createElement("input");
+            input.setAttribute("type", "file");
+            input.setAttribute("accept", "image/*"); //이미지만 선택할 수 있도록 제한
+            input.click();
+
+            //이미지 선택해서 가져오도록
+            input.onchange = async () => {
+                console.log("파일 선택함");
+                const file = input.files[0];
+
+                if (file) { //파일을 잘 가져왔다면 파일의 정보를 출력해봄
+                    console.log(file.name); //파일 이름 출력
+
+                    // 파일의 실제 데이터는 백엔드 서버 컴퓨터의 파일로 저장되게 한다.
+                    // 파일의 이름만 DB에 저장되게 한다.
+                    const formData = new FormData();
+                    formData.append("image", file);
+
+                    const response = await axios.post("http://localhost:8080/upload-image", formData, { //백엔드 서버에 파일 업로드 하는 것 매핑.
+                        headers: {
+                            "Content-Type": "multipart/form-data"
+                        }
+                    });
+
+                    //응답 받는데 성공했으면
+                    if (response.data.success) {
+                        const imageUrl = response.data.imageUrl;
+                        quill.insertEmbed(10, 'image', "http://localhost:8080" + imageUrl); //백엔드 서버에서 저장된 이미지를 받아옴
+                    }
+                }
+            }
+        }
+
+        const toolbar = quill.getModule('toolbar');
+        toolbar.addHandler('image', showImageUI);
+
+
+    </script>
+</body>
+
+</html>

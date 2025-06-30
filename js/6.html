@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동의 버튼 활성화</title>
+</head>
+
+<body>
+    <input id="agreeAll" onchange="agreeAll()" type="checkbox" name="agree"> 모두 동의 (선택 정보 포함) <br>
+    <input class="agree" onchange="agree()" type="checkbox" name="agree"> [필수] 만 14세 이상입니다 <br>
+    <input class="agree" onchange="agree()" type="checkbox" name="agree"> [필수] 이용약관 동의 <br>
+    <input class="agree" onchange="agree()" type="checkbox" name="agree"> [필수] 개인정보 수집 및 이용 동의 <br>
+    <input class="agree" onchange="agree()" type="checkbox" name="agree"> [선택] 마케팅 목적의 개인정보 수집 및 이용 동의 <br>
+    <input class="agree" onchange="agree()" type="checkbox" name="agree"> [선택] 광고성 정보 수신 동의 <br>
+    <button class="btn" disabled>버튼</button>
+
+
+    <script>
+        // input DOM의 checked를 true 또는 false로 변경
+        // button DOM의 disabled를 true 또는 false로 변경
+
+        // 
+        // 수동으로 모든 항목을 동의하면 모두 동의도 체크되게 하시오.
+        // 하나라도 동의하지 않으면 모두 동의는 체크 해제되게 하시오.
+        // 필수 항목들이 전부 동의되면 버튼이 활성화되게 하시오.
+        // 모두 동의 버튼을 누르면 모든 항목이 체크되게 하시오.
+        let allAgreeBtn = document.getElementById("agreeAll");  //모두 동의 버튼
+        let agreeBtn = document.getElementsByClassName("agree");    //동의 버튼 배열
+        let Btn = document.getElementsByTagName("button")[0]; //진짜 버튼
+
+
+        const agreeAll = () => {
+            console.log("모두 동의 클릭");
+
+            //allAgreeBtn의 checked가 true면
+            //모두 선택 버튼 눌렀을 때 모든 항목 체크되고, 버튼 활성화
+            if (allAgreeBtn.checked) {
+                for (let i = 0; i < agreeBtn.length; i++) {
+                    agreeBtn[i].checked = true;
+                    Btn.disabled = false;
+                    console.log(allAgreeBtn.chekced + ", " + Btn.disabled);
+                }
+            }
+
+
+            //allAgreeBtn의 checked가 false면
+            //모두 선택 버튼 눌렀을 때 모든 항목이 해제되고, 버튼 비활성화
+            else {
+                for (let i = 0; i < agreeBtn.length; i++) {
+                    agreeBtn[i].checked = false;
+                    Btn.disabled = true;
+                    console.log(allAgreeBtn.chekced + ", " + Btn.disabled);
+                }
+            }
+        }
+
+
+
+
+
+        const agree = () => {
+            console.log("특정 동의 클릭");
+
+            //필수 동의만 눌렀을 때 버튼 활성화 or 필수 항목 모두 선택 안했을 때 버튼 비활성화
+            if (agreeBtn[0].checked && agreeBtn[1].checked && agreeBtn[2].checked) {
+                Btn.disabled = false;
+            } else {
+                Btn.disabled = true;
+            }
+
+            //모두 선택하면 모두 동의 버튼 checked를 true, 하나라도 동의 안되어 있으면 모두 동의 checked를 false
+            let booleanCount = 0;
+            for (let i = 0; i < agreeBtn.length; i++) {
+                if (agreeBtn[i].checked) {
+                    booleanCount++;
+                } else {
+                    booleanCount--;
+                }
+            }
+            if (booleanCount == agreeBtn.length) {
+                allAgreeBtn.checked = true;
+            } else {
+                allAgreeBtn.checked = false;
+            }
+        }
+    </script>
+</body>
+
+</html>

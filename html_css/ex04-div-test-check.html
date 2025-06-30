@@ -1,0 +1,60 @@
+<!-- div 로 영역 나누기/ 실습 -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .section {
+            display: flex;
+        }
+
+        .div_item {
+            background-color: chartreuse;
+            display: flex;
+        }
+        .item {
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .header {
+            background-color: antiquewhite;
+            flex: 1 1 0%;
+        }
+        .main {
+            background-color: aqua;
+            flex: 3 1 0%;
+        }
+        .aside {
+            background-color: blueviolet;
+            flex: 1 1 0%;
+        }
+        .footer {
+            background-color: coral;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="header">Header</div>
+        <div class="div_item">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+            <div class="item">item3</div>
+            <div class="item">item4</div>
+            <div class="item">item5</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="main">Main</div>
+        <div class="aside">Aside</div>        
+    </div>
+    <div class="footer">Footer</div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 권한</title>
+</head>
+
+<body>
+    <button id="noti_btn">알림 띄우기</button>
+    <script>
+        let btn = document.getElementById("noti_btn");
+        btn.addEventListener("click", () => {
+            let title = "안경만두";
+            let options = {
+                body: "오늘의 안경만두를 보셨습니까?",
+                icon: "만두3.jpg",
+                image: "만두3.jpg",
+            }
+            const notification = new Notification(title, options);
+        });
+
+        // 브라우저에서 지원 여부 확인
+        if ('Notification' in window) {
+            console.log("지원함");
+        } else {
+            console.log("지원 안함");
+        }
+
+        // 알림 권한 요청(권한 : default(요청 전), granted(허용), denied(거부))
+        // 왼쪽 위에 팝업으로 알림 허용할 것인지 뜬다.
+        if (Notification.permission === 'granted') {
+            console.log("이미 허용함");
+        } else {
+            Notification.requestPermission().then(permission => {
+                console.log(permission);
+            })
+        }
+
+        // 서비스 워커 등록
+        // 개발자 도구에서 push 눌렀을때 (서버에서 보내주는용, 지금 서버 없으니까 테스트용)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('../javascript/mandu.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>

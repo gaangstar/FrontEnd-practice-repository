@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="chat-body">
+    <header class="top-header chat-header">
+        <div class="header-top">
+            <div class="header-column">
+                <i class="fa fa-plane"></i>
+                <i class="fa fa-wifi"></i>
+            </div>
+            <div class="header-column">
+                <span class="header-clock">17:01</span>
+            </div>
+            <div class="header-column">
+                <i class="fa fa-moon"></i>
+                <i class="fa fa-bluetooth-b"></i>
+                <span class="header-battery">48%</span>
+                <i class="fa fa-battery-three-quarters"></i>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="header-column">
+                <a href="chats.html">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+            </div>
+            <div class="header-column">
+                <span class="header-text">Stocker</span>
+            </div>
+            <div class="header-column">
+                <i class="fa fa-bars"></i>
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+    </header>
+    <main class="chat">
+        <div class="date-divider">
+            <span class="date-time">
+                Wednseday, August 2, 2017
+            </span>
+        </div>
+
+
+        <div class="chat-message message-from-me">
+            <span class="time">17:55</span>
+            <span class="chat-msg-body ">
+                Hello!! This is a test message.
+            </span>
+        </div>
+
+
+        <div class="chat-message message-to-me">
+            <img src="./Images/elon-musk.jpg" alt="">
+            <div class="chat-msg-chunk">
+                <h3 class="name">Musk</h3>
+                <span class="chat-msg-body ">
+                    And this is an answer.
+                </span>
+            </div>
+            <span class="time">19:30</span>
+        </div>
+
+
+        <div class="type-message-bar">
+            <i class="fa fa-plus fa-lg"></i>
+            <div class="type-message-body">
+                <input type="text">
+                <i class="fa fa-smile-o fa-lg"></i>
+                <span class="icon">
+                    <i class="fa fa-microphone fa-lg"></i>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const input = document.getElementsByTagName("input")[0]; //input 태그
+        const main = document.getElementsByClassName("chat")[0]; //채팅을 붙일 부모
+
+
+        //엔터치면 채팅 보내지게
+        const send = () => {
+            if (event.key === 'Enter') {
+                let divTag = document.createElement("div"); //div태그
+                let spanTagTime = document.createElement("span"); //시간 나타낼 span태그
+                let spanTagMessage = document.createElement("span"); //내가 보낸 메세지 span 태그
+
+                //태그 클래스 이름 지정
+                divTag.className = "chat-message message-from-me";
+                spanTagTime.className = "time";
+                spanTagMessage.className = "chat-msg-body";
+
+                //시간, 메세지 만들기
+                let date = new Date();
+                let hour = date.getHours();
+                let minutes = date.getMinutes();
+                spanTagTime.textContent = hour + ":" + minutes;
+                spanTagMessage.textContent = input.value;
+
+
+                //div태그에 시간과 메시지 붙이기
+                divTag.appendChild(spanTagTime);
+                divTag.appendChild(spanTagMessage);
+                main.appendChild(divTag); //메인에 div태그 붙이기
+
+                input.value = "";
+            }
+        };
+
+        input.addEventListener("keydown", send);
+    </script>
+</body>
+
+</html>

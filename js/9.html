@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 - 백엔드 호출</title>
+</head>
+
+<body>
+    <button onclick="getData()">백엔드 호출(Ajax)</button>
+    <button onclick="fetchData01()">백엔드 호출(fetch)</button>
+    <button onclick="fetchData02()">백엔드 호출(fetch, async + await)</button>
+    <button onclick="getAxios()">백엔드 호출(axios, async + await)</button>
+
+    <p id="text"></p>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        /*
+        // AJAX (Asynchronous JavaScript and XML)
+        const getData = () => {
+            let httpRequest = new XMLHttpRequest();
+
+            httpRequest.onreadystatechange = () => {
+                if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                    let response = JSON.parse(httpRequest.responseText);
+
+                    document.getElementById("text").innerText = response.test;
+                }
+            }
+
+            httpRequest.open("GET", "http://10.10.10.100/abc.json");
+            httpRequest.send();
+        }
+
+        // fetch - 라이브러리 사용 방식
+        const fetchData01 = () => {
+            let url = "http://10.10.10.100/abc.json";
+            let options = {
+                method: "GET",
+            };
+            let response = fetch(url, options);
+            response.then(
+                (result) => result.text()
+            ).then(
+                (data) => {
+                    let response = JSON.parse(data);
+
+                    document.getElementById("text").innerText = response.test;
+                }
+            );
+        };
+
+        // fetch - async + await
+        const fetchData02 = async () => {
+            let url = "http://10.10.10.100/abc.json";
+            let options = {
+                method: "GET",
+            };
+            let response = await fetch(url, options);
+            let result = await response.json;
+            console.log(result);
+            document.getElementById("text").innerText = result.test;
+        };
+        */
+
+        //axios - async + await 방식
+        const getAxios = async () => {
+            const response = await axios.get("http://192.168.177.100/product-list.json");
+            console.log(response.data);
+            document.getElementById("text").innerText = response.data.result[0].name;
+        };
+    </script>
+</body>
+
+</html>

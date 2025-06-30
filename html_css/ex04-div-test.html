@@ -1,0 +1,77 @@
+<!-- div 로 영역 나누기/ 실습 -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .section {
+            display: flex;
+        }
+        .div_item {
+            border: 1px solid blue;
+            background-color: chartreuse;
+            flex: 1 1 0%;
+        }        
+        ul {
+            display: flex;
+            border: 1px solid black;
+        }
+        li {
+            border: 1px solid red;
+            list-style-type: none;
+            background-color: white;
+        }
+        
+
+        .header {
+            background-color: antiquewhite;
+            flex: 1 1 0%;
+        }
+        .main {
+            background-color: aqua;
+            flex: 3 1 0%;
+        }
+        .aside {
+            background-color: blueviolet;
+            flex: 1 1 0%;
+        }
+        .footer {
+            background-color: coral;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="header">Header</div>
+        <div class="div_item">
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+                <li>item5</li>
+                <li>item6</li>
+            </ul>
+        </div>
+        <!-- <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+        </ul> -->
+
+    </div>
+    <div class="section">
+        <div class="main">Main</div>
+        <div class="aside">Aside</div>        
+    </div>
+    <div class="footer">Footer</div>
+</body>
+
+</html>

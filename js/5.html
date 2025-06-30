@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 클릭 DOM</title>
+</head>
+<body>
+    <div class="box" style="display: block">박스</div>
+    <button class="btn">버튼</button>
+
+    <script>
+        let btns = document.getElementsByClassName("btn");
+        btns[0].addEventListener("click", () => {
+            let boxs = document.getElementsByClassName("box");
+            // bboxs[0].style.display = "none";
+
+            //만약 box[0].style.display 가 block이면 none으로 변경
+            //그렇지 않으면 block으로 변경
+            if(boxs[0].style.display == "block") {
+                boxs[0].style.display = "none";
+            } else if(boxs[0].style.display = "none"){
+                boxs[0].style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

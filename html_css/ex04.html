@@ -1,0 +1,33 @@
+<!-- div 로 영역 나누기 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .section {
+            display: flex;
+        }
+
+        .main {
+            flex: 2 1 0%;
+        }
+
+        .aside {
+            flex: 1 1 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">헤더</div>
+    <div class="section">
+        <div class="aside">사이드</div>
+
+        <div class="main">메인</div>
+    </div>
+    <div class="header">풋터</div>
+</body>
+
+</html>

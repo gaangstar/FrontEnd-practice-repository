@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack</title>
+</head>
+
+<body>
+    <script>
+        //만들어져 있는 push, pop 사용 금지
+        //데이터 넣는 기능 - push
+        //마지막에 저장된 데이터 삭제하는 기능 - pop
+
+        let arr = [];
+        let toptop = 0;
+
+        let pushpush = (num) => {
+            arr[toptop++] = num;
+        };
+
+        let poppop = () => {
+            console.log(arr[--toptop]);
+            if (toptop < 0) {
+                toptop = 0;
+            }
+        };
+
+        console.log("before arr = " + arr + ",top = " + toptop);
+
+        pushpush(10);
+        pushpush(20);
+        pushpush(30);
+        pushpush(40);
+        console.log("after arr = " + arr + ",top = " + toptop);
+
+        poppop();
+        poppop();
+        poppop();
+        poppop();
+        poppop();
+        poppop();
+        poppop();
+        console.log("top = " + toptop);
+    </script>
+</body>
+
+</html>

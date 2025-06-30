@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Camera Web App</title>
+
+</head>
+
+<body>
+    <main id="camera">
+
+        <canvas id="camera--sensor"></canvas>
+
+        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
+        <video id="camera--view" autoplay playsinline></video>
+
+
+        <button id="camera--start">카메라 켜기</button>
+
+    </main>
+
+    <script>
+
+        let constraints = { video: { facingMode: "user" }, audio: false };
+        const cameraView = document.querySelector("#camera--view");
+        const cameraSensor = document.querySelector("#camera--sensor");
+        const cameraStart = document.querySelector("#camera--start");
+
+
+        startCamera = () => {
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then((stream) => {
+                    track = stream.getTracks()[0];
+                    cameraView.srcObject = stream;
+                })
+                .catch((error) => {
+                    console.error("카메라에 문제가 있습니다.", error);
+                })
+        }
+        cameraStart.addEventListener("click", () => {
+            startCamera();
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 좌표 받아오기</title>
+    <style>
+        #cursor {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background-color: #FFD9EE;
+        }
+
+        #mouse_divTag {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cursor"></div>
+    <script>
+        let cursor_divTag = document.getElementById("cursor");
+        let mouse_divTag;
+
+        let socket = new WebSocket('ws://localhost:8080/ws/chat'); //소켓 연결
+        //웹소켓 연결이 되었으면
+        socket.onopen = () => {
+            console.log('Connected to WebSocket');
+        };
+
+        //메세지를 받으면
+        socket.onmessage = (event) => {
+            let recv = JSON.parse(event.data);
+            let payload = JSON.parse(recv.payload);
+
+            if (mouse_divTag != null) {
+                mouse_divTag.style.top = payload.y + "px";
+                mouse_divTag.style.left = payload.x + "px";
+                return;
+            }
+
+            mouse_divTag = document.createElement("div");
+            mouse_divTag.id = "mouse_divTag";
+            cursor_divTag.appendChild(mouse_divTag);
+        };
+
+
+        //마우스 움직일때 이벤트 처리
+        document.addEventListener("mousemove", (event) => {
+            const x_cordinate = event.x;
+            const y_cordinate = event.y;
+
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                const message = {
+                    type: "MOUSE",
+                    x: x_cordinate,
+                    y: y_cordinate
+                }
+                console.log("JSON.stringify(message) = " + JSON.stringify(message));
+                socket.send(JSON.stringify(message));
+            }
+        });
+    </script>
+</body>
+
+</html>

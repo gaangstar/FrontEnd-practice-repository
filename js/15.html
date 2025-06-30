@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹소켓 - 사용자 목록 출력하기</title>
+    <style>
+        .div-item {
+            width: 200px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="users_div">
+        <p>현재 접속한 사용자 목록</p>
+    </div>
+
+    <div>
+        <span>사용자 아이디 : </span>
+        <input type="text" id="user_id" />
+        <button id="connect">웹 소켓 연결</button>
+    </div>
+
+    <div>
+        <span>보낼 메세지 : </span>
+        <input type="text" id="message" />
+        <button id="send">전송</button>
+    </div>
+
+    <div id="message_div">여기에 받은 메세지를 출력</div>
+
+    <script>
+        let socket;
+        let input_message = document.getElementById("message"); //보낼 메세지
+        let user_id = document.getElementById("user_id"); //사용자 아이디
+        let users_divTag = document.getElementById("users_div"); //접속한 사용자 붙일 부모
+        let message_divTag = document.getElementById("message_div"); //받은 메세지 붙일 부모
+
+
+
+        //메세지 전송 버튼 눌렀을 때
+        let send_btn = document.getElementById("send"); //전송 벝튼
+        send_btn.addEventListener("click", () => {
+            //메세지 값 받아오기
+            const message = input_message.value;
+
+            //웹소켓 연결 확인
+            if (socket && socket.readyState === WebSocket.OPEN) { //연결중인 상태이면
+                //메세지를 보냄
+                socket.send(message);
+                input_message.value = "";
+            }
+        });
+
+
+        //웹소켓 연결 버튼 눌렀을 때
+        let btn = document.getElementById("connect"); //소켓 연결 버튼
+        btn.addEventListener("click", () => {
+            socket = new WebSocket('ws://localhost:8080/ws/chat');  //서버 주소, 소켓 연결
+
+            //소켓 연결 되었으면
+            socket.onopen = () => {
+                console.log('Connected to WebSocket');
+
+                //서버에 보낼 형식
+                const message = {
+
+                }
+            };
+
+
+            //서버에서 메세지 받으면 이 코드가 실행됨
+            //서버에 접속한 사람들 한정으로 내가 보낸 메세지가 나한테도 오고, 다른 사람한테도 옴
+            socket.onmessage = (event) => {
+                console.log("[받은 메세지] : " + event.data + ",\n[event.data type] : " + event.type);
+
+                let message = event.data.split('"');
+                console.log("[message type event.data] : " + typeof event.data);
+
+                //string을 객체 형태로 바꿔줌
+                let recv = JSON.parse(event.data);
+                console.log("[message type recv] : " + recv);
+
+                //div Tag에 받은 메세지 이어 붙이기
+                let pTag = document.createElement("p");
+                pTag.className = "div-item";
+                pTag.innerText = recv.payload;
+                message_divTag.appendChild(pTag);
+            };
+
+            //user가 있어야만 연결
+            if (user.value) {
+
+                //접속을 했으면 내 user id를 보냄
+                //message가 일정 형식을 갖도록 해서 보냄
+                //보낼때 json 형식의 글자로 바꿔서 보내도록 함
+
+                //연결을 하면 user id 정보가 변경되면 안됨 = readonly 사용
+
+                //enter 타입이면 사용자 목록에 추가되도록
+
+            }
+        });
+    </script>
+</body>
+
+</html>

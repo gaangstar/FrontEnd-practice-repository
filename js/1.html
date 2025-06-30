@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>연금 복권 번호 생성기</title>
+</head>
+
+<body>
+    <script>
+        //랜덤한 번호 만드는 법, 0~99까지
+        /* 
+        let randNum;
+        randNum = Math.floor(Math.random() * 100); 
+         */
+
+
+        //연금 복권 번호 생성기
+        //6개의 1자리 숫자 생성
+        let randNum;
+        for (let i = 0; i < 6; i++) {
+            randNum = Math.floor(Math.random() * 9) + 1; //1~9
+            console.log(randNum);
+        }
+    </script>
+</body>
+
+</html>

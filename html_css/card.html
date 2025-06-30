@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card</title>
+    <style>
+        .card_wrap {
+            border: 1px solid black;
+
+            display: flex;
+            flex-wrap: wrap; /*넘어가는 애들 어떻게 처리할지,원래 flex는 한줄만인데 wrap을 해서 넘어가는거 까지 감싸겠다*/
+            
+        }
+        .card {
+            border: 1px solid red;
+
+            width: calc(80%/4); /*넘어가는 애들 배치 방법*/
+            flex: 1 1;
+            padding: 10px;
+            box-shadow: 5px 5px 8px 0 lightgray;
+            margin: 15px;
+        }
+
+        .thumbnail_image {
+            width: 100%;
+        }
+
+
+
+        /*지울거*/
+        .card div {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="card_wrap">
+        <div class="card">
+            <div><img src="/고양이.jpg" class="thumbnail_image"></div>
+            <div>리눅스 강의</div>
+            <div>강사</div>
+            <div>23000원</div>
+        </div>
+        <div class="card">
+            <div><img src="/고양이.jpg" class="thumbnail_image"></div>
+            <div>리눅스 강의</div>
+            <div>강사</div>
+            <div>23000원</div>
+        </div>
+        <div class="card">
+            <div><img src="/고양이.jpg" class="thumbnail_image"></div>
+            <div>리눅스 강의</div>
+            <div>강사</div>
+            <div>23000원</div>
+        </div>
+        <div class="card">
+            <div><img src="/고양이.jpg" class="thumbnail_image"></div>
+            <div>리눅스 강의</div>
+            <div>강사</div>
+            <div>23000원</div>
+        </div>
+    </div>
+</body>
+</html>

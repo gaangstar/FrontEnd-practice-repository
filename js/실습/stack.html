@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack 구현</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* 스택 형태로 역순 출력 */
+        #stack-container {
+            margin-top: 20px;
+            display: flex;
+
+
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stack-item {
+            width: 200px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stack 구현</h1>
+
+    <div>
+        <input type="text" id="inputValue" placeholder="값을 입력하세요">
+        <button id="pushButton">Push</button>
+        <button id="popButton">Pop</button>
+    </div>
+
+    <div id="stack-container">
+        <!-- 스택 요소들이 여기에 추가됨 -->
+    </div>
+    <script>
+        let arr = [];
+        let toptop = 0;
+
+
+        let input = document.getElementById("inputValue");
+        let pushBtn = document.getElementById("pushButton");
+        let popBtn = document.getElementById("popButton");
+        let divContainer = document.getElementById("stack-container");
+
+
+
+        //pushBtn.addEventListener("click", 함수());
+        pushBtn.addEventListener("click", () => {
+            arr[toptop++] = input.value;
+            console.log("arr = " + arr);
+
+            let divTag = document.createElement("div");
+            divTag.className = "stack-item";
+            divTag.textContent = input.value;
+            divContainer.appendChild(divTag);
+        });
+
+
+        popBtn.addEventListener("click", () => {
+            //console.log(arr[--toptop]);
+            --toptop;
+            if (toptop < 0) {
+                toptop = 0;
+                return;
+            }
+
+            let inner_divTag = document.getElementsByClassName("stack-item");
+            divContainer.removeChild(inner_divTag[toptop]);
+        });
+
+
+
+    </script>
+</body>
+
+</html>

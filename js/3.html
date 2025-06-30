@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 야구 게임</title>
+</head>
+
+<body>
+    <script>
+        let number = {
+            strike: 0,
+            ball: 0,
+            out: 0
+        };
+
+        //랜덤 수 생성
+        let randNumArr = [];
+        for (; randNumArr.length < 3;) {
+            let randNum = Math.floor(Math.random() * 8) + 1;
+
+            let fal = false;
+            for (let i = 0; i < randNumArr.length; i++) {
+                if (randNum == randNumArr[i]) {
+                    fal = true;
+                }
+            }
+
+            if (fal) {
+                console.log("중복");
+            } else {
+                randNumArr.push(randNum);
+            }
+        }
+        console.log("randNumArr=" + randNumArr);
+
+
+
+        //숫자 비교
+        for (; number.strike != 3;) {
+            let input = prompt("숫자를 입력하세요.");
+            let input100 = Math.floor(input / 100);
+            let input10 = Math.floor((input / 10) % 10);
+            let input1 = Math.floor(input % 10);
+
+            //let input = prompt(randNumArr);
+            console.log("숫자 입력 값 100=" + input100 + ", 10=" + input10 + ", 1=" + input1);
+
+            //100의 자리 검증
+            if (input100 == randNumArr[0]) {
+                number.strike++;
+            } else if (input100 == randNumArr[1] || input100 == randNumArr[2]) {
+                number.ball++;
+            }
+
+            //10의 자리 검증
+            if (input10 == randNumArr[1]) {
+                number.strike++;
+            } else if (input10 == randNumArr[0] || input10 == randNumArr[2]) {
+                number.ball++;
+            }
+
+            //1의 자리 검증
+            if (input1 == randNumArr[2]) {
+                number.strike++;
+            } else if (input1 == randNumArr[0] || input1 == randNumArr[1]) {
+                number.ball++;
+            }
+            number.out = 3 - (number.strike + number.ball);
+
+
+            if (number.strike == 3) { //3스트라이크일 경우 종료
+                console.log("정답!");
+            } else { //계속 진행
+                console.log("S=" + number.strike + ", " + "B=" + number.ball + ", " + "O=" + number.out);
+                number.strike = 0; number.ball = 0; number.out = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

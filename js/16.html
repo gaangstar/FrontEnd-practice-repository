@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 접속한 사용자 목록 - 강사님 코드</title>
+</head>
+
+<body>
+    <div id="users">
+        <p>현재 접속한 사용자 목록</p>
+    </div>
+    <div id="messages">
+        <p>받은 메시지 목록</p>
+    </div>
+    <input type="text" id="user" />
+    <button id="connect">웹 소켓 연결</button>
+    <input type="text" id="message" />
+    <button id="send">전송</button>
+    <script>
+        let socket;
+        let users = document.getElementById("users");
+        let user = document.getElementById("user");
+        let input = document.getElementById("message");
+        let send_btn = document.getElementById("send");
+        let messages = document.getElementById("messages");
+
+        send_btn.addEventListener("click", () => {
+
+            const message = {
+                type: "MESSAGE",
+                message: input.value
+            }
+
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify(message));
+                input.value = "";
+            }
+        });
+
+        let btn = document.getElementById("connect");
+        btn.addEventListener("click", () => {
+            if (user.value != "") {
+                socket = new WebSocket('ws://localhost:8080/ws/chat');  // 서버 주소
+
+                socket.onopen = () => {
+                    console.log('Connected to WebSocket');
+                    const message = {
+                        type: "ENTER",
+                        user: user.value
+                    }
+                    socket.send(JSON.stringify(message));
+                    user.setAttribute("readonly", true);
+                };
+
+                socket.onmessage = (event) => {
+                    let recv = JSON.parse(event.data);
+                    let payload = JSON.parse(recv.payload);
+                    if (payload.type == "ENTER") {
+                        let pTag = document.createElement("p");
+                        pTag.innerHTML = payload.user;
+                        users.appendChild(pTag);
+                    } else {
+                        let pTag = document.createElement("p");
+                        pTag.innerHTML = payload.message;
+                        messages.appendChild(pTag);
+                    }
+
+                }
+            } else {
+                alert("사용자 정보를 입력해주세요.")
+            }
+
+        });
+    </script>
+</body>
+
+</html>
