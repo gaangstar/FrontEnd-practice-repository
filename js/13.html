@@ -28,7 +28,7 @@
             console.log("지원 안함");
         }
 
-        // 알림 권한 요청(권한 : default(요청 전), granted(허용), denied(거부))
+        // 알림 권한 요청(권한 : default(요청 전), granted(허용), denied(거부)), 기본은 default이다. 이때, 팝업창이 뜨면서 허용할 것인지 물어봄
         // 왼쪽 위에 팝업으로 알림 허용할 것인지 뜬다.
         if (Notification.permission === 'granted') {
             console.log("이미 허용함");
@@ -49,8 +49,6 @@
                     console.error('Service Worker registration failed:', error);
                 });
         }
-
-
     </script>
 </body>
 
